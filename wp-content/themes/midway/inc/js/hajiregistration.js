@@ -1,9 +1,23 @@
+$(document).ready(function){
+	$('#packageText').change(function(){
+		function setTextField(ddl) {
+			alert(document.getElementById('packageText').value = ddl.options[ddl.selectedIndex].text);
+		}
+	});
+	
+}
+
 $(document).ready(function(){
 	$('#package').change(function(){
 
-		var selectedOption = $('#package option:selected');
+		function setTextField(ddl) {
+			alert(document.getElementById('packageText').value = ddl.options[ddl.selectedIndex].text);
+		}
 
-		var formhtml  = $("#formhtml").show();
+		var selectedOption = $('#package option:selected');
+		var selectPpp 	   = $('#packageppp option:selected');
+
+		var formhtml  = $("#formhtml").show();/*meanmpilkan form*/
 		var ppp1      = $('#ppp1');
 		var ppp2      = $('#ppp2');
 		var desti     = $('#desti');
@@ -15,6 +29,18 @@ $(document).ready(function(){
 		var conhotel  = $('#con-hotel');
 
 		function ppp( fppp1, fppp2, fdesti, ftime, fprice, fairline, fhotel){
+
+			
+			/*if (selectPpp.val()== "ppp1") {
+
+				ppp1.text(fppp1);
+				
+			}else if (selectPpp.val()== "ppp2") {
+
+				ppp2.text(fppp2);
+
+			}*/
+
 			ppp1.text(fppp1);
 			ppp2.text(fppp2);
 			desti.val(fdesti);
@@ -34,8 +60,8 @@ $(document).ready(function(){
 				'$2,700',
 				'TURKISH AIR',
 				'');
-				conhotel.hide();
-				roomhotel.hide();
+			conhotel.hide();
+			roomhotel.hide();
 		}else if (selectedOption.val() == "package2") {
 			ppp('17 Desember 2015',
 				'Bulan Febuari dan April 2016',
@@ -74,8 +100,8 @@ $(document).ready(function(){
 				'$2,700',
 				'TURKISH AIR',
 				'');
-				conhotel.hide();
-				roomhotel.hide();
+			conhotel.hide();
+			roomhotel.hide();
 		}else if (selectedOption.val() == "package6") {
 			ppp('17 Desember 2015',
 				'Bulan Febuari dan April 2016',
@@ -131,5 +157,5 @@ $(document).ready(function(){
 
 		
 //html('Value = ' + selectedOption.val() +", Text = "+selectedOption.text());
-	});
+});
 });

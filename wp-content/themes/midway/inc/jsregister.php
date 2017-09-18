@@ -1,4 +1,5 @@
 <?php
+/*Untuk Mendaftarkan JavaScript di Wordpres*/
 function regishaji(){
 
     // Register the script like this for a theme:
