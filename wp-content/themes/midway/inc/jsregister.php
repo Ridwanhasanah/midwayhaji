@@ -10,4 +10,16 @@ function regishaji(){
     //wp_enqueue_script( 'jsregis' );
 }
 add_action( 'wp_enqueue_scripts', 'regishaji' );
+
+/*========== Menu Start==========*/
+function umrohRegistrationMenu(){
+	add_menu_page('Pendaftaran', 'Pendaftaran', 'manage_options', 'daftar', 'umrohRegistration' );
+}
+
+add_action('admin_menu', 'umrohRegistrationMenu');
+
+function umrohRegistration(){
+	include('pendaftaran/menuPendaftaran.php');
+}
+/*========== Menu End==========*/
 ?>

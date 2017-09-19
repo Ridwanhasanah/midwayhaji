@@ -1,3 +1,5 @@
+Menambahkan folder inc untuk tempat edit
+
 Telah melakukan edit dan penambahan pada moudle-search.php dan style.css
 style.css
 .tour-search-form menggannti warna backgroung dari #404040; menjadi #fff;
