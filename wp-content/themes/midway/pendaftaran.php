@@ -5,7 +5,7 @@ Template Name: Pendaftaran
 get_header();
 include('inc/pendaftaran/pendaftaran_crud.php');
 ?>
-<form method="POST" action="#">
+<form method="POST" action="#" class="formRegisUmroh" id="formRegisUmroh">
 <div class="row">
 	<div class="full-tour clearfix">
 		<div class="elevencol column">
@@ -18,7 +18,7 @@ include('inc/pendaftaran/pendaftaran_crud.php');
 					<div class="field-container">
 						<div class="sixcol column last">
 							<select onchange="setTextField(this);" id="package" name="package">
-								<option></option>
+								<option ></option>
 								<option value="package1"><?= $paket1;?></option>
 								<option value="package2"><?= $paket2;?></option>
 								<option value="package3"><?= $paket3;?></option>
@@ -32,9 +32,10 @@ include('inc/pendaftaran/pendaftaran_crud.php');
 							</select><br>
 						</div>
 					</div>
+					
 					<input id="packageText" type = "hidden" name = "packageText" value = "" />
 					<script type="text/javascript">
-						function setTextField(ddl) {
+						function setTextField(ddl) { /*take the Text from select option and insert into input hidden*/
 							document.getElementById('packageText').value = ddl.options[ddl.selectedIndex].text;
 						}
 					</script>
@@ -45,7 +46,12 @@ include('inc/pendaftaran/pendaftaran_crud.php');
 
 					<div class="fourcol column">Nama Lengkap (Sesuai pasport 3 suku kata) *</div>
 					<div class="sixcol column last">
-						<div class="field-container"><input type="text" name="names"></div>
+						<div class="field-container">
+							<input required value="" id="names" type="text" name="names">
+							<span class="errorval" id="errorName"></span>
+							
+						</div>
+						
 					</div>
 					<div class="fourcol column">Jenis Kelamin *</div>
 					<div class="field-container">
@@ -58,12 +64,19 @@ include('inc/pendaftaran/pendaftaran_crud.php');
 
 					<div class="fourcol column">Tanggal Lahir *</div>
 					<div class="sixcol column last">
-						<div class="field-container"><input type="text" name="birthdate" placeholder="Format Date : YYYY-MM-DD"></div>
+						<div class="field-container">
+							<input required size=10 id="birthdate" required type="text" class="datepicker" name="birthdate" placeholder="Format Date : YYYY-MM-DD"><br><br>
+							<span class="errorval" id="errorBirthDate"></span>
+							<br>
+						</div>
 					</div>
 
 					<div class="fourcol column">Tempat Lahir *</div>
 					<div class="sixcol column last">
-						<div class="field-container"><input type="text" name="birthplace"></div>
+						<div class="field-container">
+							<input required id="birthPlace"  type="text" name="birthplace"></div>
+							<span class="errorval" id="errorBirthPlace"></span>
+							<br>
 					</div>
 
 					<div class="fourcol column">Status Menikah *</div>
@@ -81,23 +94,35 @@ include('inc/pendaftaran/pendaftaran_crud.php');
 
 					<div class="fourcol column">Alamat Email *</div>
 					<div class="sixcol column last">
-						<div class="field-container"><input type="text" name="email" placeholder="ex : nama@email.com"></div>
+						<div class="field-container">
+							<input required  id="email" type="email" name="email" placeholder="ex : nama@email.com">
+							<span class="errorval" id="errorEmail"></span>
+						</div>
 					</div>
 					<div class="fourcol column">No Handphone *</div>
 					<div class="sixcol column last">
-						<div class="field-container"><input type="text" name="phone" placeholder="08123456789"></div>
+						<div class="field-container">
+							<input required id="phone" type="number" name="phone" placeholder="08123456789">
+							<span class="errorval" id="errorPhone"></span>
+						</div>
 					</div>
 					<div class="fourcol column">Alamat Rumah *</div>
 					<div class="sixcol column last">
-						<div class="field-container"><textarea name="homeadd"></textarea></div>
+						<div class="field-container">
+							<textarea required id="homeadd"  name="homeadd"></textarea>
+							<span class="errorval" id="errorHomeAdd"></span>
+						</div>
 					</div>
 					<div class="fourcol column">Kota *</div>
 					<div class="sixcol column last">
-						<div class="field-container"><input type="text" name="city"></div>
+						<div class="field-container">
+							<input required id="city" type="text" name="city">
+							<span class="errorval" id="errorCity"></span>
+						</div>
 					</div>
 					<div class="fourcol column">No Tlp Rumah</div>
 					<div class="sixcol column last">
-						<div class="field-container"><input type="text" name="homephone" placeholder="021321123"></div>
+						<div class="field-container"><input type="number" name="homephone" placeholder="021321123"></div>
 					</div>
 					<div class="fourcol column">Alamat Kantor</div>
 					<div class="sixcol column last">
@@ -105,7 +130,7 @@ include('inc/pendaftaran/pendaftaran_crud.php');
 					</div>
 					<div class="fourcol column">No Tlp Kantor</div>
 					<div class="sixcol column last">
-						<div class="field-container"><input type="text" name="officephone" placeholder="021321123"></div>
+						<div class="field-container"><input type="number" name="officephone" placeholder="021321123"></div>
 					</div>
 					<div class="fourcol column">Referensi</div>
 					<div class="sixcol column last">
@@ -119,19 +144,36 @@ include('inc/pendaftaran/pendaftaran_crud.php');
 
 					<div class="fourcol column">No Pasport *</div>
 					<div class="sixcol column last">
-						<div class="field-container"><input type="text" name="nopassport" placeholder="ex : 3337976547"></div>
+						<div class="field-container">
+							<input required id="noPassport"  type="number" name="nopassport" placeholder="ex : 3337976547">
+							<span class="errorval" id="errorNoPassport"></span>
+						</div>
 					</div>
 					<div class="fourcol column">Tanggal Keluar Pasport *</div>
 					<div class="sixcol column last">
-						<div class="field-container"><input type="text" name="datepassport" placeholder="Format : YYYY-MM-DD"></div>
+						<div class="field-container">
+							<input type="text" id="datePassport" required name="datepassport" placeholder="Format : YYYY-MM-DD">
+							<br>
+							<span class="errorval" id="errorDatePassport"></span>
+							<br>
+						</div>
 					</div>
 					<div class="fourcol column">Tanggal Habis Pasport *</div>
 					<div class="sixcol column last">
-						<div class="field-container"><input type="text" name="exdatepassport" placeholder="Format : YYYY-MM-DD"></div>
+						<div class="field-container">
+							<input type="text" id="exDatePassport" required name="exdatepassport" placeholder="Format : YYYY-MM-DD">
+							<br>
+							<span class="errorval" id="errorExDatePassport"></span>
+							
+							<br>
+						</div>
 					</div>
 					<div class="fourcol column">Kantor Imigrasi Pasport *</div>
 					<div class="sixcol column last">
-						<div class="field-container"><input type="text" name="officepassport"></div>
+						<div class="field-container">
+							<input required  id="officePassport" type="text" name="officepassport">
+							<span class="errorval" id="errorOfficePassport"></span>
+						</div>
 					</div>
 				</div>
 
@@ -153,7 +195,7 @@ include('inc/pendaftaran/pendaftaran_crud.php');
 
 				<div class="elevencol column">
 					<div class="sixcol column last">
-						<div class="field-container"><input type="submit" id="submit" name="submit" value="Daftar Sekarang"></div>
+						<div class="field-container"><input type="submit" id="send" name="submit" value="Daftar Sekarang"></div>
 					</div>
 				</div>
 

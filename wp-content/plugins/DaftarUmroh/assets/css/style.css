@@ -1,0 +1,116 @@
+.container{
+	width: 98%;
+	padding: 10px;
+
+}
+
+.table1 {
+    font-family: sans-serif;
+    color: #444;
+    border-collapse: collapse;
+    border: 1px solid #f2f5f7;
+	background: #fff;
+	width: 100%;
+}
+
+.table1 thead tr th{
+    background: #78e1f5;
+    color: #000;
+    font-weight: normal;
+    height: 40px;
+}
+.table1 tfoot tr th{
+    background: #78e1f5;
+    color: #000;
+    font-weight: normal;
+    height: 40px;
+}
+
+.table1, th, td {/* bermasalah */
+    padding: 8px 20px;
+    text-align: center;
+}
+.table1 tbody tr td{
+	height: 50px;
+}
+.table1 tbody tr:hover {
+    background-color: #fff;
+}
+
+.table1 thead tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.white{
+	background-color: #eaf5f9;
+}
+.blue{
+	background-color: rgb(245, 248, 251);
+}
+/*  ========= POp up Start */
+.popup{
+     width: 100%;
+     height: auto;
+  }
+  .bg{
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background: #ddd;
+  }
+  .content{
+     position: relative;
+     top:50px;
+     width: 100%;
+     margin: 0 auto;
+
+     padding: 10px 20px;
+  }
+  .content-text{
+
+  }
+  .close{
+   margin-right: 50px;
+   float: right;
+   margin-bottom: 30px;
+   display: inline-block;
+   padding: 7px 15px;
+   cursor: pointer;
+   background: #E74C3C;
+   color: #fff;
+}
+.close:hover,.close:visited{
+  background: #C0392B;
+}
+.Rtitle{
+   text-align: center;
+}
+.biodata{
+   position: relative;
+   top:50px;
+   width: 70%;
+   margin: 100px auto 100px auto;
+   background: #fff;
+   padding: 10px 20px;
+}
+.tableid{
+   /* margin-bottom: 15px; */
+}
+.data{
+   width: 80%;
+   margin-left: 15%;
+   margin-right: 15%;
+}
+  /* 
+  */
+  .table2 {
+
+   background: #fff;
+   width: 65%;
+}
+
+.table2{
+ padding: 8px 20px;
+}

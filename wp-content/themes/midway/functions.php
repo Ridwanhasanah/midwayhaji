@@ -32,7 +32,8 @@ $themex=new ThemexCore($config);
 
 /*Edit by Ridwan Start*/
 include('inc/viewcount.php');
-include('inc/jsregister.php');
+include('inc/init.php');
+
 
 
 /*Edit by Ridwan End*/

@@ -79,24 +79,31 @@ Tags: travel, trip, tour, journal, nature, ecological, cruise, holiday, booking
 
 /* CSS QU  start*/
 
-/* Menu table start */
-.tables{
-	padding: 20px 0px 20px 20px;
+/* jQuery validasi start */
+	#names-error{
+
+	}
+/* jQuery validasi End */
+
+
+/* jQuery  */
+/* ==================================== */
+.errorval, #names-error , #email-error, #date-error, #number-error, #homeadd-error, #city-error, #birthdate-error, 
+#birthPlace-error, #phone-error, #noPassport-error, #datePassport-error, #exDatePassport-error, #officePassport-error{
+	color: red;
+	border: 1px solid red;
+	font-style: italic;
+	padding: 0px 5px;
+	border-radius: 5px;
+	display: none;
 }
-table thead tr th  .fixeder{
-	width: 2.2em !important;
-    padding: 6px 0 25px;
-    vertical-align: top;
-}
-.number{
-	color: green;
-}
-/* Menu table end */
+/* validasi end */
 
 /* Pendaftaran start */
 
 #formhtml {
     display: none;
+
 }
 /* Pendaftaran End */
 /* CSS untuk contact form7  start*/
