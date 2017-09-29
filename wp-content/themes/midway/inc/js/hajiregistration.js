@@ -1,6 +1,53 @@
 jQuery(document).ready(function(){
 
+	/*===== Date Picker Start =====*/
+	jQuery('.datePicker').datepicker({
+		dateFormat:"yy-mm-dd",
+		changeMonth: true,
+		changeYear: true,
+		yearRange: "1900:2222"
+	});
+	/*===== Date Picker End =====*/
+	/*====== Validate Select Option Start========*/
+
+
+
+	jQuery('#send').click(function(){
+
+		var package = jQuery('#package').val();
+		var errorPackage = jQuery('#errorPackage');
+
+		var packageppp = jQuery('#packageppp').val();
+		var errorPackageppp = jQuery('#errorPackageppp');
+
+		if (package == 0) {
+			alert('Anda Harus memlih Paket Terlebih dahulu');
+			//errorPackage.html('Anda Harus memlih Paket Terlebih dahulu').show();
+			package.focusout(function(){
+				if (package != 0) {
+					errorPackage.html('Anda Harus memlih Paket Terlebih dahulu').hide();
+				}
+			})
+		}else if( packageppp == 0){
+			alert('Anda Harus memlih Periode Paket Perjalanan Terlebih dahulu');
+
+			//errorPackageppp.html('Anda Harus pilih Paket perjalan');
+		}else{
+			errorPackage.hide();
+			errorPackageppp.hide();
+		}	
+	})
+
+	/*====== Validate Select Option End========*/
+
+
 	/*===== jQuery validation Start ========*/
+
+	/*$.validator.addMethod("valueNotEquals", function(value, element, arg){
+		return arg !== value;
+	}, "Value must not equal arg.");*/
+
+
 	jQuery('#formRegisUmroh').validate({
 		rules: {
     // simple rule, converted to {required:true}
@@ -9,7 +56,11 @@ jQuery(document).ready(function(){
     email: {
     	required: true,
     	email: true
-    }
+    },SelectName: { valueNotEquals:"default"}
+},
+
+message:{
+	SelectName: {valueNotEquals:"Tolong Pilih Paket"}
 }
 });
 	/*===== jQuery validation End ===e=====*/
@@ -29,6 +80,7 @@ jQuery(document).ready(function(){
 		var hotel     = jQuery('#hotel');
 		var roomhotel = jQuery('#roomhotel');
 		var conhotel  = jQuery('#con-hotel');
+		var test = jQuery('#nilainya').text();
 
 		function ppp( fppp1, fppp2, fdesti, ftime, fprice, fairline, fhotel){
 
@@ -47,105 +99,105 @@ jQuery(document).ready(function(){
 
 
 		if (selectedOption.val() == "package1") {
-			ppp('Bearngkat Tanggal 11 26 Des 2015',
-				'Keberangkatan Berikutnya bulan Febuari & April 2016',
-				'Mekah, Madinah & Turkey',
-				'13 Hari',
-				'$ 2,700',
-				'TURKISH AIR',
-				'');
-			conhotel.hide();
-			roomhotel.hide();
+			ppp( jQuery('#p1ppp1').text(),
+				jQuery('#p1ppp2').text(),
+				jQuery('#p1desti').text(),
+				jQuery('#p1duration').text(),
+				'$ '+jQuery('#p1price').text(),
+				jQuery('#p1airlines').text(),
+				jQuery('#p1hotel').text());
+			conhotel.show();
+			roomhotel.show();
 		}else if (selectedOption.val() == "package2") {
-			ppp('17 Desember 2015',
-				'Bulan Febuari dan April 2016',
-				'Mekah, Madinah & Turkey',
-				'11 Hari',
-				'$ 2,050',
-				'Saudia/Emirates/Ettihad/Egypt Air',
-				'Hotel Setaraf Bintang 4,Hotel Madinah');
+			ppp( jQuery('#p2ppp1').text(),
+				jQuery('#p2ppp2').text(),
+				jQuery('#p2desti').text(),
+				jQuery('#p2duration').text(),
+				'$ '+jQuery('#p2price').text(),
+				jQuery('#p2airlines').text(),
+				jQuery('#p2hotel').text());
 			conhotel.show();
 			roomhotel.show();
 		}else if (selectedOption.val() == "package3") {
-			ppp('Desember 2015',
-				'',
-				'Dubai, Mekkah, Madinah',
-				'11 Hari',
-				'$ 2,050',
-				'Emirates/ Garuda/ Ettihad/Saudia Air',
-				'Hotel Setaraf Bintang 3 Mekkah,Hotel Mekkah');
+			ppp( jQuery('#p3ppp1').text(),
+				jQuery('#p3ppp2').text(),
+				jQuery('#p3desti').text(),
+				jQuery('#p3duration').text(),
+				'$ '+jQuery('#p3price').text(),
+				jQuery('#p3airlines').text(),
+				jQuery('#p3hotel').text());
 			conhotel.show();
 			roomhotel.show();
 		}else if (selectedOption.val() == "package4") {
-			ppp('Bearngkat Tanggal 11, 26 Desember 2015',
-				'',
-				'Mekah, Madinah & Turkey',
-				'12 Hari',
-				'$ 2,500',
-				'SAUDI ARABIA , TURKIS AIRLANES',
-				'');
-			conhotel.hide();
-			roomhotel.hide();
+			ppp( jQuery('#p4ppp1').text(),
+				jQuery('#p4ppp2').text(),
+				jQuery('#p4desti').text(),
+				jQuery('#p4duration').text(),
+				'$ '+jQuery('#p4price').text(),
+				jQuery('#p4airlines').text(),
+				jQuery('#p4hotel').text());
+			conhotel.show();
+			roomhotel.show();
 		}else if (selectedOption.val() == "package5") {
-			ppp('Bearngkat Tanggal 11 26 Des 2015',
-				'Keberangkatan Berikutnya bulan Febuari & April 2016',
-				'Mekah, Madinah & Turkey',
-				'13 Hari',
-				'$ 2,700',
-				'TURKISH AIR',
-				'');
-			conhotel.hide();
-			roomhotel.hide();
+			ppp( jQuery('#p5ppp1').text(),
+				jQuery('#p5ppp2').text(),
+				jQuery('#p5desti').text(),
+				jQuery('#p5duration').text(),
+				'$ '+jQuery('#p5price').text(),
+				jQuery('#p5airlines').text(),
+				jQuery('#p5hotel').text());
+			conhotel.show();
+			roomhotel.show();
 		}else if (selectedOption.val() == "package6") {
-			ppp('17 Desember 2015',
-				'Bulan Febuari dan April 2016',
-				'Mekah, Madinah & Turkey',
-				'11 Hari',
-				'$ 2,050',
-				'Saudia/Emirates/Ettihad/Egypt Air',
-				'Hotel Setaraf Bintang 4,Hotel Madinah');
+			ppp( jQuery('#p6ppp1').text(),
+				jQuery('#p6ppp2').text(),
+				jQuery('#p6desti').text(),
+				jQuery('#p6duration').text(),
+				'$ '+jQuery('#p6price').text(),
+				jQuery('#p6airlines').text(),
+				jQuery('#p6hotel').text());
 			conhotel.show();
 			roomhotel.show();
 		}else if (selectedOption.val() == "package7") {
-			ppp('Desember 2015',
-				'',
-				'Dubai, Mekkah, Madinah',
-				'11 Hari',
-				'$ 2,050',
-				'Emirates/ Garuda/ Ettihad/Saudia Air',
-				'Hotel Setaraf Bintang 3 Mekkah,Hotel Mekkah');
+			ppp( jQuery('#p7ppp1').text(),
+				jQuery('#p7ppp2').text(),
+				jQuery('#p7desti').text(),
+				jQuery('#p7duration').text(),
+				'$ '+jQuery('#p7price').text(),
+				jQuery('#p7airlines').text(),
+				jQuery('#p7hotel').text());
 			conhotel.show();
 			roomhotel.show();
 		}else if (selectedOption.val() == "package8") {
-			ppp('Bearngkat Tanggal 11, 26 Desember 2015',
-				'',
-				'Mekah, Madinah & Turkey',
-				'12 Hari',
-				'$ 2,500',
-				'SAUDI ARABIA , TURKIS AIRLANES',
-				'');
-			conhotel.hide();
-			roomhotel.hide();
+			ppp( jQuery('#p8ppp1').text(),
+				jQuery('#p8ppp2').text(),
+				jQuery('#p8desti').text(),
+				jQuery('#p8duration').text(),
+				'$ '+jQuery('#p8price').text(),
+				jQuery('#p8airlines').text(),
+				jQuery('#p8hotel').text());
+			conhotel.show();
+			roomhotel.show();
 		}else if (selectedOption.val() == "package9") {
-			ppp('Desember 2015',
-				'',
-				'Dubai, Mekkah, Madinah',
-				'11 Hari',
-				'$ 2,050',
-				'Emirates/ Garuda/ Ettihad/Saudia Air',
-				'Hotel Setaraf Bintang 3 Mekkah,Hotel Mekkah');
+			ppp( jQuery('#p9ppp1').text(),
+				jQuery('#p9ppp2').text(),
+				jQuery('#p9desti').text(),
+				jQuery('#p9duration').text(),
+				'$ '+jQuery('#p9price').text(),
+				jQuery('#p9airlines').text(),
+				jQuery('#p9hotel').text());
 			conhotel.show();
 			roomhotel.show();
 		}else if (selectedOption.val() == "package10") {
-			ppp('Bearngkat Tanggal 11, 26 Desember 2015',
-				'',
-				'Mekah, Madinah & Turkey',
-				'12 Hari',
-				'$ 2,500',
-				'SAUDI ARABIA , TURKIS AIRLANES',
-				'');
-			conhotel.hide();
-			roomhotel.hide();
+			ppp( jQuery('#p10ppp1').text(),
+				jQuery('#p10ppp2').text(),
+				jQuery('#p10desti').text(),
+				jQuery('#p10duration').text(),
+				'$ '+jQuery('#p10price').text(),
+				jQuery('#p10airlines').text(),
+				jQuery('#p10hotel').text());
+			conhotel.show();
+			roomhotel.show();
 		}
 
 
@@ -154,11 +206,11 @@ jQuery(document).ready(function(){
 //html('Value = ' + selectedOption.val() +", Text = "+selectedOption.text());
 
 });
-	/*========== Menampilkan Nama Paket ketika di Select End =========*/
+/*========== Menampilkan Nama Paket ketika di Select End =========*/
 
-	/*===== Validasi Start =====*/
+/*===== Validasi Start =====*/
 
-	jQuery(function(){
+jQuery(function(){
 		var errorName = jQuery('#errorName'); //initial variable
 		var name = jQuery('#names');
 		
@@ -201,57 +253,57 @@ jQuery(document).ready(function(){
 			if (name == 0) { //kondisi
 				error.html(value).show(); //menampilkan text string yang ada
 			error.show(); //menampilkan span
-			}else{
+		}else{
 			error.hide(); // jika false maka hide
-			}
-
 		}
 
+	}
 
-		name.focusout(function(){
-			checkVal(name.val().length,'Nama Harus di Isi',errorName)
+
+	name.focusout(function(){
+		checkVal(name.val().length,'Nama Harus di Isi',errorName)
 			//check_name();
 		});
 
-		birthDate.focusout(function(){
-			checkVal(birthDate.val().length,'Harap Isi Tanggal Lahir anda dengan benar sesuai format',errorBirthDate);
-		});
+	birthDate.focusout(function(){
+		checkVal(birthDate.val().length,'Harap Isi Tanggal Lahir anda dengan benar sesuai format',errorBirthDate);
+	});
 
-		birthPlace.focusout(function(){
-			checkVal(birthPlace.val().length,'Tempat Lahir Anda masih kosong harap di isi',errorBirthPlace);
-		});
+	birthPlace.focusout(function(){
+		checkVal(birthPlace.val().length,'Tempat Lahir Anda masih kosong harap di isi',errorBirthPlace);
+	});
 
-		email.focusout(function(){
-			checkVal(email.val().length,'Email Anda masih kosong harap di isi',errorEmail);
-		});
+	email.focusout(function(){
+		checkVal(email.val().length,'Email Anda masih kosong harap di isi',errorEmail);
+	});
 
-		phone.focusout(function(){
-			checkVal(phone.val().length,'Nomor Handphone Anda masih kosong harap di isi',errorPhone);
-		});
+	phone.focusout(function(){
+		checkVal(phone.val().length,'Nomor Handphone Anda masih kosong harap di isi',errorPhone);
+	});
 
-		homeAdd.focusout(function(){
-			checkVal(homeAdd.val().length,'Alamat Rumah Anda masih kosong harap di isi',errorHomeAdd);
-		});
+	homeAdd.focusout(function(){
+		checkVal(homeAdd.val().length,'Alamat Rumah Anda masih kosong harap di isi',errorHomeAdd);
+	});
 
-		city.focusout(function(){
-			checkVal(city.val().length,'Kolom Kota masih kosong harap di isi',errorCity);
-		});
+	city.focusout(function(){
+		checkVal(city.val().length,'Kolom Kota masih kosong harap di isi',errorCity);
+	});
 
-		noPassport.focusout(function(){
-			checkVal(noPassport.val().length,'Nomor Passport Anda masih kosong harap di isi',errorNoPassport);
-		});
+	noPassport.focusout(function(){
+		checkVal(noPassport.val().length,'Nomor Passport Anda masih kosong harap di isi',errorNoPassport);
+	});
 
-		datePassport.focusout(function(){
-			checkVal(datePassport.val().length,'Tanggal Keluar Passport masih kosong harap di isi sesuai format',errorDatePassport);
-		});
+	datePassport.focusout(function(){
+		checkVal(datePassport.val().length,'Tanggal Keluar Passport masih kosong harap di isi sesuai format',errorDatePassport);
+	});
 
-		exDatePassport.focusout(function(){
-			checkVal(exDatePassport.val().length,'Tanggal Habis Passport masih kosong harap di isi sesuai format',errorExDatePassport);
-		});
+	exDatePassport.focusout(function(){
+		checkVal(exDatePassport.val().length,'Tanggal Habis Passport masih kosong harap di isi sesuai format',errorExDatePassport);
+	});
 
-		officePassport.focusout(function(){
-			checkVal(officePassport.val().length,'Kantor Imigrasi Passport masih kosong harap di isi',errorOfficePassport);
-		});
+	officePassport.focusout(function(){
+		checkVal(officePassport.val().length,'Kantor Imigrasi Passport masih kosong harap di isi',errorOfficePassport);
+	});
 
 
 

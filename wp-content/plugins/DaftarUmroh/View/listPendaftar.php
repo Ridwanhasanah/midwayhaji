@@ -11,11 +11,11 @@ include(plugin_dir_path(__FILE__) . '../Model/dbconnect.php');
 //$delete = $wpdb->get_results("DELETE FROM 'wp_regformhaji' WHERE 'wp_regformhaji'.'id' = $id");
 
 global $pagenow;
-echo "<pre>";
+/*echo "<pre>";
 print_r(home_url().'/wp-admin/'.$pagenow.'?page=list-daftar');
 echo "<br><br>";
 print_r(get_site_url());
-echo "</pre>";
+echo "</pre>";*/
 
 ?>
 
@@ -44,7 +44,7 @@ echo "</pre>";
 			<tr <?= $y%2==0?'class="white"':'class="blue"' ?>>
 				<td><?= $db[$y]!=0?'INV'.$db[$y]->id:''?></td>
 				<td>
-					<div>
+					<div class="namelink">
 					<b>
 						<a href="<?php echo $pagenow.'?page=single-'.$id;?>" > 
 						<?= array_shift(explode(' ', $db[$y]->full_name));  ?>
@@ -54,7 +54,26 @@ echo "</pre>";
                <?php 
                if ($db[$y] != 0) {
                   ?>
-                  <a href="<?php echo $pagenow.'?page=delete-'.$id;?>" onclick="return confirm(\'Yakin ?\')">Delete</a>
+                  <div class="rlink">
+                  	<ul>
+                  
+                  		<li>
+                  			<a  href="<?php echo $pagenow.'?page=delete-'.$id;?>" onclick="return confirm(\'Yakin ?\')">Delete</a>
+                  		</li>
+                  		<li>
+                  			&nbsp; | &nbsp;
+                  		</li>
+                  		<li>
+                  			<a href="<?php echo $pagenow.'?page=edit-'.$id;?>" onclick="return confirm(\'Yakin ?\')">Edit</a>
+                  		</li>
+                  		<li>
+                  			&nbsp; | &nbsp;
+                  		</li>
+                  		<li>
+                  			<a href="<?php echo $pagenow.'?page=single-'.$id;?>" >View</a>
+                  		</li>
+                  	</ul>
+                  </div>
                <?php
             };
                ?>
@@ -73,6 +92,7 @@ echo "</pre>";
 	</tbody>
 	<tfoot>
 		<tr >
+			<th>No Invoice</th>
 			<th>Nama</th>
 			<th>Nama Paket</th>
 			<th>Maskapai</th>

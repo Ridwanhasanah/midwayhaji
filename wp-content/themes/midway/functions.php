@@ -35,5 +35,12 @@ include('inc/viewcount.php');
 include('inc/init.php');
 
 
+/*Remove footer thank you*/
+function wpse_remove_footer()
+{
+    add_filter( 'admin_footer_text',    '__return_false', 11 );
+    add_filter( 'update_footer',        '__return_false', 11 );
+}
+add_action( 'admin_init', 'wpse_remove_footer' );
 
 /*Edit by Ridwan End*/

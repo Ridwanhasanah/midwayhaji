@@ -14,8 +14,9 @@ $total = $wpdb->get_var( "SELECT COUNT('id') FROM $table" );
 $num_of_pages = ceil( $total / $limit );
 
 /*GIve Limit*/
-$db = $wpdb->get_results( "SELECT * FROM $table LIMIT $offset, $limit" );
-$id = $db[$y]->id;
+$db = $wpdb->get_results( "SELECT * FROM $table ORDER BY id DESC LIMIT $offset, $limit" );
+//$db = $wpdb->get_results( "SELECT * FROM $table LIMIT $offset, $limit" );
+//$id = $db[$y]->id;
 /*========= Pagination End========*/
 
 /*===== GET ID Start =====*/
